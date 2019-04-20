@@ -1,4 +1,3 @@
-import inputs
 
 def A1(Sx_sci,Sx_ref,field,fred):
 	Nref = field['Nref']

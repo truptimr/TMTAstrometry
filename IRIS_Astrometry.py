@@ -3,6 +3,7 @@ import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
 from inputs import *
+from error_calculator import Error_calculator
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
@@ -362,8 +363,7 @@ def update_output_div(wavelength,SNR,rNGS,Rref,T,dt,Nref,rsep,Nfield,Nsci,Noise,
     Final_error = Error_calculator(global_inputs,field,sigma_x,astrometry_type)
     return 'Astrometry error is {}'.format(Final_error)
 
-def Error_calculator(global_inputs,field,sigma_x,astrometry_type):
-    return 2
+
 
 if __name__ == '__main__':
     app.run_server(debug=True)
