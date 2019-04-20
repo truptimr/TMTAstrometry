@@ -188,18 +188,18 @@ app.layout = html.Div(children=[
                 # 'color': colors['text']
             }
         ),
-        ## Noise input
-            # header
-        html.H1(children='Noise',
-            style={
-                'textAlign': 'left',
-                'color': colors['text']
-            }
-         ),
-            # input tab
-        html.Div([
-        dcc.Input(id='Noise-id', value = 37.5, type='number'),
-        ]),
+        # ## Noise input
+        #     # header
+        # html.H1(children='Noise',
+        #     style={
+        #         'textAlign': 'left',
+        #         'color': colors['text']
+        #     }
+        #  ),
+        #     # input tab
+        # html.Div([
+        # dcc.Input(id='Noise-id', value = 37.5, type='number'),
+        # ]),
 
         ## Confusion input
             # header
@@ -227,44 +227,44 @@ app.layout = html.Div(children=[
         dcc.Input(id='OSD-id', value = 5, type='number'),
         ]),
 
-        ## PST input
-            # header
-        html.H1(children='Plate Scale Turbulance',
-            style={
-                'textAlign': 'left',
-                'color': colors['text']
-            }
-        ),
-            # input tab
-        html.Div([
-        dcc.Input(id='PST-id', value=15.0, type='number'),
-        ]),
+        # ## PST input
+        #     # header
+        # html.H1(children='Plate Scale Turbulance',
+        #     style={
+        #         'textAlign': 'left',
+        #         'color': colors['text']
+        #     }
+        # ),
+        #     # input tab
+        # html.Div([
+        # dcc.Input(id='PST-id', value=15.0, type='number'),
+        # ]),
 
-        ## HOT input
-            # header
-        html.H1(children='Higher Order Turbulance',
-            style={
-                'textAlign': 'left',
-                'color': colors['text']
-            }
-        ),
-            # input tab
-        html.Div([
-        dcc.Input(id='HOT-id', value=10.5, type='number'),
-        ]),
+        # ## HOT input
+        #     # header
+        # html.H1(children='Higher Order Turbulance',
+        #     style={
+        #         'textAlign': 'left',
+        #         'color': colors['text']
+        #     }
+        # ),
+        #     # input tab
+        # html.Div([
+        # dcc.Input(id='HOT-id', value=10.5, type='number'),
+        # ]),
 
-        ## PSI input
-            # header
-        html.H1(children='PSF irregularitues',
-            style={
-                'textAlign': 'left',
-                'color': colors['text']
-            }
-        ),
-            # input tab
-        html.Div([
-        dcc.Input(id='PSI-id', value=5.5, type='number'),
-        ]),
+        # ## PSI input
+        #     # header
+        # html.H1(children='PSF irregularitues',
+        #     style={
+        #         'textAlign': 'left',
+        #         'color': colors['text']
+        #     }
+        # ),
+        #     # input tab
+        # html.Div([
+        # dcc.Input(id='PSI-id', value=5.5, type='number'),
+        # ]),
 
         ## Halo Effect input
             # header
@@ -292,18 +292,18 @@ app.layout = html.Div(children=[
         dcc.Input(id='TV-id', value=1, type='number'),
         ]),
 
-       ## Proper motion error
-            # header
-        html.H1(children='Proper Motion Error',
-            style={
-                'textAlign': 'left',
-                'color': colors['text']
-            }
-        ),
-            # input tab
-        html.Div([
-        dcc.Input(id='PM-id', value=500, type='number'),
-        ]),
+       # ## Proper motion error
+       #      # header
+       #  html.H1(children='Proper Motion Error',
+       #      style={
+       #          'textAlign': 'left',
+       #          'color': colors['text']
+       #      }
+       #  ),
+       #      # input tab
+       #  html.Div([
+       #  dcc.Input(id='PM-id', value=500, type='number'),
+       #  ]),
     ],style={'width': '30%', 'float':'right', 'display': 'inline-block'})
 
     
@@ -324,20 +324,20 @@ app.layout = html.Div(children=[
     Input(component_id='rsep-id', component_property='value'),
     Input(component_id='Nfield-id', component_property='value'),
     Input(component_id='Nsci-id', component_property='value'),
-    Input(component_id='Noise-id', component_property='value'),
+    # Input(component_id='Noise-id', component_property='value'),
     Input(component_id='confusion-id', component_property='value'),
     Input(component_id='OSD-id', component_property='value'),
-    Input(component_id='PST-id', component_property='value'),
-    Input(component_id='HOT-id', component_property='value'),
-    Input(component_id='PSI-id', component_property='value'),
+    # Input(component_id='PST-id', component_property='value'),
+    # Input(component_id='HOT-id', component_property='value'),
+    # Input(component_id='PSI-id', component_property='value'),
     Input(component_id='HE-id', component_property='value'),
     Input(component_id='TV-id', component_property='value'),
-    Input(component_id='PM-id', component_property='value'),
+    # Input(component_id='PM-id', component_property='value'),
     Input(component_id='astrometry-type-id', component_property='value')
     ]
 )
 
-def update_output_div(wavelength,SNR,rNGS,Rref,T,dt,Nref,rsep,Nfield,Nsci,Noise,Confusion,OSD,PST,HOT,PSI,HE,TV,PM,astrometry_type):
+def update_output_div(wavelength,SNR,rNGS,Rref,T,dt,Nref,rsep,Nfield,Nsci,Confusion,OSD,HE,TV,astrometry_type):
     global_inputs['wavelength'] = wavelength
     global_inputs['SNR'] = SNR
     global_inputs['rngs'] = rNGS
@@ -350,15 +350,15 @@ def update_output_div(wavelength,SNR,rNGS,Rref,T,dt,Nref,rsep,Nfield,Nsci,Noise,
     field['Nfield'] = Nfield
     field['Nsci'] =Nsci
 
-    sigma_x['Focal-plane measurement errors']['Noise'] = Noise
+    # sigma_x['Focal-plane measurement errors']['Noise'] = Noise
     sigma_x['Focal-plane measurement errors']['Confusion'] = Confusion
     sigma_x['Opto-mechanical errors']['Dispersion obj spectra'] = OSD
-    sigma_x['Opto-mechanical errors']['Diff TTJ plate scale'] = PST
-    sigma_x['Opto-mechanical errors']['Diff TTJ higher order'] = HOT
-    sigma_x['Opto-mechanical errors']['PSF irregularities'] = PSI
+    # sigma_x['Opto-mechanical errors']['Diff TTJ plate scale'] = PST
+    # sigma_x['Opto-mechanical errors']['Diff TTJ higher order'] = HOT
+    # sigma_x['Opto-mechanical errors']['PSF irregularities'] = PSI
     sigma_x['Opto-mechanical errors']['Halo effect'] = HE
     sigma_x['Opto-mechanical errors']['Turb conditions variability'] = TV
-    sigma_t['Opto-mechanical errors']['Proper motion errors'] = PM
+    # sigma_t['Opto-mechanical errors']['Proper motion errors'] = PM
 
     Final_error = Error_calculator(global_inputs,field,sigma_x,sigma_t,astrometry_type)
     return 'Astrometry error is {}'.format(Final_error)
