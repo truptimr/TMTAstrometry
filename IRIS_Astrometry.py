@@ -358,9 +358,9 @@ def update_output_div(wavelength,SNR,rNGS,Rref,T,dt,Nref,rsep,Nfield,Nsci,Noise,
     sigma_x['Opto-mechanical errors']['PSF irregularities'] = PSI
     sigma_x['Opto-mechanical errors']['Halo effect'] = HE
     sigma_x['Opto-mechanical errors']['Turb conditions variability'] = TV
-    sigma_x['Opto-mechanical errors']['Proper motion errors'] = PM
+    sigma_t['Opto-mechanical errors']['Proper motion errors'] = PM
 
-    Final_error = Error_calculator(global_inputs,field,sigma_x,astrometry_type)
+    Final_error = Error_calculator(global_inputs,field,sigma_x,sigma_t,astrometry_type)
     return 'Astrometry error is {}'.format(Final_error)
 
 
