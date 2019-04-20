@@ -1,5 +1,5 @@
 import formulae as f
-from inputs import sigma_t, fred
+from inputs import fred
 import math
 
 def Error_calculator(global_inputs,field,sigma_x,sigma_t,astrometry_type):
@@ -10,7 +10,7 @@ def Error_calculator(global_inputs,field,sigma_x,sigma_t,astrometry_type):
 	elif astrometry_type == 'Absolute Astrometry':
 		error = abs_astrometry(global_inputs,field,sigma_x)
 	else:
-		print('No option selected. Something is wrong')
+		print('No option selected. Something went wrong')
 
 	return error
 
