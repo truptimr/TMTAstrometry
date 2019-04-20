@@ -21,6 +21,11 @@ https://plot.ly/products/dash/
 - Automate to read multiple cases from a file and store results in a file?
 - Things to plot?
 
+# Issues
+- Excel never uses formula DR1 from the .pdf. We need to work on its use case?
+- possible error in excel for absolute astrometry PS-2 formulae?:wq
+
+
 
 
 
