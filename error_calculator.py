@@ -1,7 +1,7 @@
 from Diff_astro_field_stars import diff_ref
 from Diff_astro_sci_objects import diff_sci
 from Absolute_astrometry import abs_astrometry
-import math
+
 
 def Error_calculator(global_inputs,field,sigma_x,sigma_t,astrometry_type):
 	sigma_x['Focal-plane measurement errors']['Noise'] = 3400000000*global_inputs['wavelength']/global_inputs['SNR']

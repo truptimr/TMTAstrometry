@@ -64,7 +64,7 @@ def abs_astrometry(global_inputs,field,sigma_x,sigma_t):
 		conf_err = f.A1(sigma_x['Focal-plane measurement errors']['Confusion'],sigma_x['Focal-plane measurement errors']['Confusion'],field,fred)
 
 		FP_err = noise_err + noise_cal_err + pix_blur + pix_irr + det_nl + PSF_rec + conf_err
-		print(math.sqrt(FP_err))
+		# print(math.sqrt(FP_err))
 
 	
 		NGS_pos_err = 0
@@ -78,7 +78,7 @@ def abs_astrometry(global_inputs,field,sigma_x,sigma_t):
 		cop_atm_eff = f.A1(sigma_x['Opto-mechanical errors']['Coupling atm effects'],sigma_x['Opto-mechanical errors']['Coupling atm effects'],field,fred)
 
 		opt_mech_err =NGS_pos_err+  NF_IR_optics + NF_IR_SFE + QS_dist + tel_opt + rot_err + Act_spikes + Vib_err + cop_atm_eff
-		print(math.sqrt(opt_mech_err))
+		# print(math.sqrt(opt_mech_err))
 
 		achr_diff_ref = f.A1(sigma_x['Atmospheric refraction errors']['Achromatic differential refraction'],sigma_x['Atmospheric refraction errors']['Achromatic differential refraction'],field,fred)
 		DSO_err = f.A1(sigma_x['Atmospheric refraction errors']['Dispersion obj spectra'],sigma_x['Atmospheric refraction errors']['Dispersion obj spectra'],field,fred)
@@ -87,7 +87,7 @@ def abs_astrometry(global_inputs,field,sigma_x,sigma_t):
 		Disp_var = f.A1(sigma_x['Atmospheric refraction errors']['Dispersion variability'],sigma_x['Atmospheric refraction errors']['Dispersion variability'],field,fred)
 
 		Atm_ref_err = achr_diff_ref + DSO_err + DAC_err + DADC_pos + Disp_var
-		print(math.sqrt(Atm_ref_err))
+		# print(math.sqrt(Atm_ref_err))
 	
 		Diff_TTJ_PS = 0
 
@@ -97,7 +97,7 @@ def abs_astrometry(global_inputs,field,sigma_x,sigma_t):
 		TC_var = f.A1(sigma_x['Residual turbulence errors']['Turb conditions variability'],sigma_x['Residual turbulence errors']['Turb conditions variability'],field,fred)
 
 		Res_turb_err = Diff_TTJ_PS + Diff_TTJ_HO + PSF_irr + PSF_HE + TC_var
-		print(math.sqrt(Res_turb_err))
+		# print(math.sqrt(Res_turb_err))
 
 		pos_err = f.PS2(sigma_t['Reference obj n catalog errors']['Position errors'],field,global_inputs)
 		PM_err = f.PS2(sigma_t['Reference obj n catalog errors']['Proper motion errors'],field,global_inputs)
@@ -105,6 +105,6 @@ def abs_astrometry(global_inputs,field,sigma_x,sigma_t):
 		other_err = f.PS2(sigma_t['Reference obj n catalog errors']['Other'],field,global_inputs)
 
 		ref_obj_cat_err = pos_err + PM_err + Abr_grav_err + other_err
-		print(ref_obj_cat_err)
+		# print(ref_obj_cat_err)
 
 	return math.sqrt(FP_err + opt_mech_err + Atm_ref_err + Res_turb_err + ref_obj_cat_err)

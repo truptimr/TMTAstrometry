@@ -8,7 +8,7 @@ def A2(Sx_sci):
 
 def D1(Sx_sci_1,Sx_sci_2,field,fred):
 	Nref = field['Nref']
-	return ((Sx_sci_1**2+Sx_sci_2**2/Nref)**0.5*fred)**2
+	return ((Sx_sci_1**2+Sx_sci_2**2)**0.5*fred)**2
 
 def D2(Sx_sci,Sx_field,field,fred):
 	Nfield = field['Nfield']
