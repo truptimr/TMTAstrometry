@@ -6,24 +6,24 @@ https://plot.ly/products/dash/
 - See output in browser http://127.0.0.1:8050/
 
 # Tasks remaining
-- getting slightly different answers hen excel. Check coded equations
-- better looking UI
-- units every where
+- getting slightly different answers the excel. Check coded equations
+- Need a better looking UI
+- Need units every where
 - avoid div by zero
-- limits on inputs
-- some field types need to be int (nmber of stars) fix that
+- Put limits on inputs
+- some field types need to be int (number of stars) fix that
 - rearrange code to make it more readable?
 
 # UI options discuss with Jessica
 - show error for each category in UI? FP, OPT-mech etc
 - show default (constant values) in UI?
-- store results in file?
+- store results in a file?
 - Automate to read multiple cases from a file and store results in a file?
 - Things to plot?
 
 # Issues
 - Excel never uses formula DR1 from the .pdf. We need to work on its use case?
-- possible error in excel for absolute astrometry PS-2 formulae?:wq
+- possible error in excel for absolute astrometry PS-2 formulae?
 
 
 
