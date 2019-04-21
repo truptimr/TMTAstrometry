@@ -6,7 +6,6 @@ https://plot.ly/products/dash/
 - See output in browser http://127.0.0.1:8050/
 
 # Tasks remaining
-- getting slightly different answers the excel. Check coded equations
 - Need a better looking UI
 - Need units every where
 - avoid div by zero
