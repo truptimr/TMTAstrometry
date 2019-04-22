@@ -41,7 +41,7 @@ app.layout = html.Div(children=[
         ),
         ## wavelength input
         	# header
-        html.H1(children='Wavelength m',
+        html.Div(children='Wavelength m',
             style={
                 'textAlign': 'left',
                 'color': colors['text']
@@ -54,7 +54,7 @@ app.layout = html.Div(children=[
 
         ## SNR input
         	# header
-        html.H1(children='SNR',
+        html.Div(children='SNR',
             style={
                 'textAlign': 'left',
                 'color': colors['text']
@@ -67,7 +67,7 @@ app.layout = html.Div(children=[
 
         ## RNGS input
         	# header
-        html.H1(children='rNGS',
+        html.Div(children='rNGS',
             style={
                 'textAlign': 'left',
                 'color': colors['text']
@@ -80,7 +80,7 @@ app.layout = html.Div(children=[
 
         ## Rref input
             # header
-        html.H1(children='Rref',
+        html.Div(children='Rref',
             style={
                 'textAlign': 'left',
                 'color': colors['text']
@@ -93,7 +93,7 @@ app.layout = html.Div(children=[
 
         ## T input
             # header
-        html.H1(children='T',
+        html.Div(children='T',
             style={
                 'textAlign': 'left',
                 'color': colors['text']
@@ -106,7 +106,7 @@ app.layout = html.Div(children=[
 
         ## dt input
             # header
-        html.H1(children='dt',
+        html.Div(children='dt epoch',
             style={
                 'textAlign': 'left',
                 'color': colors['text']
@@ -128,7 +128,7 @@ app.layout = html.Div(children=[
         ),
         ## Nref input
             # header
-        html.H1(children='Number of reference stars',
+        html.Div(children='Number of reference stars',
             style={
                 'textAlign': 'left',
                 'color': colors['text']
@@ -141,7 +141,7 @@ app.layout = html.Div(children=[
 
         ## rsep input
             # header
-        html.H1(children='reference field seperation',
+        html.Div(children='reference field seperation',
             style={
                 'textAlign': 'left',
                 'color': colors['text']
@@ -154,7 +154,7 @@ app.layout = html.Div(children=[
 
         ## Nfield input
             # header
-        html.H1(children='Number of field stars',
+        html.Div(children='Number of field stars',
             style={
                 'textAlign': 'left',
                 'color': colors['text']
@@ -167,7 +167,7 @@ app.layout = html.Div(children=[
 
         ## Nsci input
             # header
-        html.H1(children='Number of science object',
+        html.Div(children='Number of science object',
             style={
                 'textAlign': 'left',
                 'color': colors['text']
@@ -190,7 +190,7 @@ app.layout = html.Div(children=[
         ),
         # ## Noise input
         #     # header
-        # html.H1(children='Noise',
+        # html.Div(children='Noise',
         #     style={
         #         'textAlign': 'left',
         #         'color': colors['text']
@@ -203,7 +203,7 @@ app.layout = html.Div(children=[
 
         ## Confusion input
             # header
-        html.H1(children='Confusion',
+        html.Div(children='Confusion',
             style={
                 'textAlign': 'left',
                 'color': colors['text']
@@ -216,7 +216,7 @@ app.layout = html.Div(children=[
 
         ## OSD input
             # header
-        html.H1(children='Object Spectra dispersion',
+        html.Div(children='Object Spectra dispersion',
             style={
                 'textAlign': 'left',
                 'color': colors['text']
@@ -229,7 +229,7 @@ app.layout = html.Div(children=[
 
         # ## PST input
         #     # header
-        # html.H1(children='Plate Scale Turbulance',
+        # html.Div(children='Plate Scale Turbulance',
         #     style={
         #         'textAlign': 'left',
         #         'color': colors['text']
@@ -242,7 +242,7 @@ app.layout = html.Div(children=[
 
         # ## HOT input
         #     # header
-        # html.H1(children='Higher Order Turbulance',
+        # html.Div(children='Higher Order Turbulance',
         #     style={
         #         'textAlign': 'left',
         #         'color': colors['text']
@@ -255,7 +255,7 @@ app.layout = html.Div(children=[
 
         # ## PSI input
         #     # header
-        # html.H1(children='PSF irregularitues',
+        # html.Div(children='PSF irregularitues',
         #     style={
         #         'textAlign': 'left',
         #         'color': colors['text']
@@ -268,7 +268,7 @@ app.layout = html.Div(children=[
 
         ## Halo Effect input
             # header
-        html.H1(children='Halo Effect',
+        html.Div(children='Halo Effect',
             style={
                 'textAlign': 'left',
                 'color': colors['text']
@@ -281,7 +281,7 @@ app.layout = html.Div(children=[
 
        ## Turbulance variability
             # header
-        html.H1(children='Turbulance variability',
+        html.Div(children='Turbulance variability',
             style={
                 'textAlign': 'left',
                 'color': colors['text']
@@ -294,7 +294,7 @@ app.layout = html.Div(children=[
 
        # ## Proper motion error
        #      # header
-       #  html.H1(children='Proper Motion Error',
+       #  html.Div(children='Proper Motion Error',
        #      style={
        #          'textAlign': 'left',
        #          'color': colors['text']
