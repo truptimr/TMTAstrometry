@@ -1,7 +1,7 @@
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
-from dash.dependencies import Input, Output
+from dash.dependencies import Input, Output, State
 from inputs import *
 from error_calculator import Error_calculator
 
@@ -25,7 +25,11 @@ app.layout = html.Div(children=[
             ),
         ],style={'width': '30%', 'float':'left', 'display': 'inline-block'}),
 
-    html.Div(id='blankspace1-id',
+    # html.Div(id='blankspace1-id',
+    #     style={'width': '30%', 'float':'center', 'display': 'inline-block'}),
+    html.Button(id = 'Calculate',n_clicks='0',children='Calculate', style={'width': '10%', 'float':'center', 'display': 'inline-block'}),
+
+    html.Div(id='ls-id',
         style={'width': '30%', 'float':'center', 'display': 'inline-block'}),
 
     html.Div(id='final_output-id',
@@ -304,7 +308,11 @@ app.layout = html.Div(children=[
        #  html.Div([
        #  dcc.Input(id='PM-id', value=500, type='number'),
        #  ]),
-    ],style={'width': '30%', 'float':'right', 'display': 'inline-block'})
+    ],style={'width': '30%', 'float':'right', 'display': 'inline-block'}),
+    
+    html.Div(id='butt-state')
+
+    # 
 
     
 
@@ -335,6 +343,7 @@ app.layout = html.Div(children=[
     # Input(component_id='PM-id', component_property='value'),
     Input(component_id='astrometry-type-id', component_property='value')
     ]
+
 )
 
 def update_output_div(wavelength,SNR,rNGS,Rref,T,dt,Nref,rsep,Nfield,Nsci,Confusion,OSD,HE,TV,astrometry_type):
@@ -363,8 +372,13 @@ def update_output_div(wavelength,SNR,rNGS,Rref,T,dt,Nref,rsep,Nfield,Nsci,Confus
     Final_error = Error_calculator(global_inputs,field,sigma_x,sigma_t,astrometry_type)
     return 'Astrometry error is {}'.format(Final_error)
 
+# @app.callback(
+#     Output(component_id='Butt', component_property='children'),
+#     Input(component_id='Calculate', component_property= 'n_clicks')
+# )
 
-
+# def update_buttonstate(value):
+#     return 'Button state is {}'.format(value)
 if __name__ == '__main__':
     app.run_server(debug=True)
 
