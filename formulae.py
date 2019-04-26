@@ -1,4 +1,5 @@
 
+# The underlying formulae to calculate error variances
 def A1(Sx_sci,Sx_ref,field,fred):
 	Nref = field['Nref']
 	return ((Sx_sci**2+Sx_ref**2/Nref)**0.5*fred)**2

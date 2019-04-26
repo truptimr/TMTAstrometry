@@ -1,3 +1,4 @@
+# Calculate differential astrometry error using field objects.
 from inputs import fred
 import formulae as f
 import math

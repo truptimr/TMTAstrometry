@@ -1,3 +1,4 @@
+# calculate absolute astrometry error
 from inputs import fred
 import formulae as f
 import math

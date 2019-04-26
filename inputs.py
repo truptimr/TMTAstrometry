@@ -1,3 +1,5 @@
+# These inputs are inputs to calculations in Absolute_astrometry.py, Diff_astro_sci_objects.py
+# Diff_astro_field_stars.py. The inputs are either 1) predefined constants, user inputs from UI or derived from user inputs in  function error_calculator.py
 global_inputs = {
 "wavelength" : 0.0000022,
 "SNR" : 200,

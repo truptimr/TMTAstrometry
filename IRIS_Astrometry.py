@@ -1,3 +1,4 @@
+# This script mplements the UI and is the main python script to run, 
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
@@ -347,6 +348,7 @@ app.layout = html.Div(children=[
 )
 
 def update_output_div(wavelength,SNR,rNGS,Rref,T,dt,Nref,rsep,Nfield,Nsci,Confusion,OSD,HE,TV,astrometry_type):
+    # The variables are already imported from input.py. Update the variables the are fed from the UI
     global_inputs['wavelength'] = wavelength
     global_inputs['SNR'] = SNR
     global_inputs['rngs'] = rNGS
@@ -369,6 +371,7 @@ def update_output_div(wavelength,SNR,rNGS,Rref,T,dt,Nref,rsep,Nfield,Nsci,Confus
     sigma_x['Opto-mechanical errors']['Turb conditions variability'] = TV
     # sigma_t['Opto-mechanical errors']['Proper motion errors'] = PM
 
+    # send the unpdated inputs to calculate the astrometry error
     Final_error = Error_calculator(global_inputs,field,sigma_x,sigma_t,astrometry_type)
     return 'Astrometry error is {}'.format(Final_error)
 

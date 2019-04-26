@@ -1,3 +1,4 @@
+# calcuate differential astrometry error for using science objects.
 from inputs import fred
 import formulae as f
 import math

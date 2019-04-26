@@ -1,3 +1,5 @@
+# The function takes inputs from UI, calculates additional parameters from the UI inputs 
+# and sends  them to approriate function to calculate the astrometry error
 from Diff_astro_field_stars import diff_ref
 from Diff_astro_sci_objects import diff_sci
 from Absolute_astrometry import abs_astrometry
