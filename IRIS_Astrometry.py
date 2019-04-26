@@ -28,7 +28,7 @@ app.layout = html.Div(children=[
 
     # html.Div(id='blankspace1-id',
     #     style={'width': '30%', 'float':'center', 'display': 'inline-block'}),
-    html.Button(id = 'Calculate',n_clicks='0',children='Calculate', style={'width': '10%', 'float':'center', 'display': 'inline-block'}),
+    html.Button(id = 'Calculate',n_clicks=0,children='Calculate', style={'width': '10%', 'float':'center', 'display': 'inline-block'}),
 
     html.Div(id='ls-id',
         style={'width': '30%', 'float':'center', 'display': 'inline-block'}),
@@ -323,31 +323,32 @@ app.layout = html.Div(children=[
 
 @app.callback(
     Output(component_id='final_output-id', component_property='children'),
-    [Input(component_id='wavelength-id', component_property='value'),
-    Input(component_id='SNR-id', component_property='value'),
-    Input(component_id='RNGS-id', component_property='value'),
-    Input(component_id='rref-id', component_property='value'),
-    Input(component_id='T-id', component_property='value'),
-    Input(component_id='dt-id', component_property='value'),
-    Input(component_id='Nref-id', component_property='value'),
-    Input(component_id='rsep-id', component_property='value'),
-    Input(component_id='Nfield-id', component_property='value'),
-    Input(component_id='Nsci-id', component_property='value'),
+    [Input(component_id='Calculate', component_property='n_clicks')],
+    [State(component_id='wavelength-id', component_property='value'),
+    State(component_id='SNR-id', component_property='value'),
+    State(component_id='RNGS-id', component_property='value'),
+    State(component_id='rref-id', component_property='value'),
+    State(component_id='T-id', component_property='value'),
+    State(component_id='dt-id', component_property='value'),
+    State(component_id='Nref-id', component_property='value'),
+    State(component_id='rsep-id', component_property='value'),
+    State(component_id='Nfield-id', component_property='value'),
+    State(component_id='Nsci-id', component_property='value'),
     # Input(component_id='Noise-id', component_property='value'),
-    Input(component_id='confusion-id', component_property='value'),
-    Input(component_id='OSD-id', component_property='value'),
+    State(component_id='confusion-id', component_property='value'),
+    State(component_id='OSD-id', component_property='value'),
     # Input(component_id='PST-id', component_property='value'),
     # Input(component_id='HOT-id', component_property='value'),
     # Input(component_id='PSI-id', component_property='value'),
-    Input(component_id='HE-id', component_property='value'),
-    Input(component_id='TV-id', component_property='value'),
+    State(component_id='HE-id', component_property='value'),
+    State(component_id='TV-id', component_property='value'),
     # Input(component_id='PM-id', component_property='value'),
-    Input(component_id='astrometry-type-id', component_property='value')
+    State(component_id='astrometry-type-id', component_property='value')
     ]
 
 )
 
-def update_output_div(wavelength,SNR,rNGS,Rref,T,dt,Nref,rsep,Nfield,Nsci,Confusion,OSD,HE,TV,astrometry_type):
+def update_output_div(n_clicks,wavelength,SNR,rNGS,Rref,T,dt,Nref,rsep,Nfield,Nsci,Confusion,OSD,HE,TV,astrometry_type):
     # The variables are already imported from input.py. Update the variables the are fed from the UI
     global_inputs['wavelength'] = wavelength
     global_inputs['SNR'] = SNR
@@ -372,7 +373,9 @@ def update_output_div(wavelength,SNR,rNGS,Rref,T,dt,Nref,rsep,Nfield,Nsci,Confus
     # sigma_t['Opto-mechanical errors']['Proper motion errors'] = PM
 
     # send the unpdated inputs to calculate the astrometry error
-    Final_error = Error_calculator(global_inputs,field,sigma_x,sigma_t,astrometry_type)
+    Final_error=0
+    if int(n_clicks)>=1:
+        Final_error = Error_calculator(global_inputs,field,sigma_x,sigma_t,astrometry_type)
     return 'Astrometry error is {}'.format(Final_error)
 
 # @app.callback(
