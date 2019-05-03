@@ -12,9 +12,9 @@ def Error_calculator(global_inputs,field,sigma_x,sigma_t,astrometry_type):
 	sigma_x['Opto-mechanical errors']['PSF irregularities'] = 55*global_inputs['T']**0.5	
 	sigma_t['Opto-mechanical errors']['Proper motion errors'] = 500*global_inputs['dt_epoch']
 
-	if astrometry_type == 'Diff. w.r.t ref stars':
+	if astrometry_type == 'Differential astrometry (relative to field stars)':
 		error = diff_ref(global_inputs,field,sigma_x,sigma_t)
-	elif astrometry_type == 'Diff. w.r.t Sci. Objects':
+	elif astrometry_type == 'Differential astrometry (science objects relative to each other)':
 		error = diff_sci(global_inputs,field,sigma_x,sigma_t)
 	elif astrometry_type == 'Absolute Astrometry':
 		error = abs_astrometry(global_inputs,field,sigma_x,sigma_t)
