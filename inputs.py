@@ -45,8 +45,8 @@ sigma_x = {'Focal-plane measurement errors':{
 		'Diff TTJ plate scale': 15.0,
 		'Diff TTJ higher order': 10.5,
 		'PSF irregularities': 5.5,
-		'Halo effect': 3,
-		'Turb conditions variability': 1
+		'Halo effect': 3
+#		'Turb conditions variability': 1
 	},
 	'Reference obj n catalog errors':{
 	'Position errors' : 0,
@@ -87,8 +87,8 @@ sigma_t = {'Focal-plane measurement errors':{
 		'Diff TTJ plate scale': 0,
 		'Diff TTJ higher order': 0,
 		'PSF irregularities': 0,
-		'Halo effect': 0,
-		'Turb conditions variability': 0
+		'Halo effect': 0
+#		'Turb conditions variability': 0
 	},
 	'Reference obj n catalog errors':{
 	'Position errors' : 1000,
