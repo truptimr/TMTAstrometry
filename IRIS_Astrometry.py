@@ -259,10 +259,11 @@ app.layout = html.Div(children=[
 
     html.Div(id='ls-id',
         style={'width': '30%', 'color': 'white','font-weight': 'bold','float':'center', 'display': 'inline-block'}),
+        ], style={'background-image': 'url(https://www.ipac.caltech.edu/system/activities/images/20/large/thirty-meter-telescope-illustration-nao-japan.jpg)',}),
 
     html.Div(id='final_output-id',
 #        style={'width': '30%', 'float':'right', 'display': 'inline-block'}),
-        style={'color': 'white', 'font-weight': 'bold','textAlign':'center','font-size':'25px','margin-top': '-15px'}),
+        style={'color': 'black', 'font-weight': 'bold','textAlign':'center','font-size':'25px','margin-top': '15px'}),
 
     
     
@@ -270,7 +271,6 @@ app.layout = html.Div(children=[
 
     # 
 
-        ], style={'background-image': 'url(https://www.ipac.caltech.edu/system/activities/images/20/large/thirty-meter-telescope-illustration-nao-japan.jpg)',}),
 
 
     # style={'width': '48%', 'float': 'center', 'display': 'inline-block'}),
