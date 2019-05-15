@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*- 
 # This script mplements the UI and is the main python script to run, 
 # this is to test local merge
 import dash
@@ -206,7 +208,7 @@ app.layout = html.Div(children=[
        
         ## Confusion input
             # header
-        html.Div(children='Confusion',
+        html.Div(children=u'Confusion (µas)',
             style={'textAlign': 'center','font-weight': 'bold','color': colors['text']}
                 ),
             # input tab
@@ -218,7 +220,7 @@ app.layout = html.Div(children=[
 
         ## OSD input
             # header
-        html.Div(children='Object Spectra dispersion (micro arcsec)',
+        html.Div(children=u'Object Spectra dispersion (µas)',
             style={'textAlign': 'center','font-weight': 'bold','color': colors['text'],'margin-left': '15px'}
                 ),
             # input tab
@@ -230,7 +232,7 @@ app.layout = html.Div(children=[
 
         ## Halo Effect input
             # header
-        html.Div(children='Halo Effect',
+        html.Div(children=u'Halo Effect (µas)',
             style={'textAlign': 'center', 'font-weight': 'bold','color': colors['text']}
                 ),
             # input tab
@@ -242,7 +244,7 @@ app.layout = html.Div(children=[
 
        ## Turbulance variability
             # header
-        html.Div(children='Turbulance variability',
+        html.Div(children= u'Turbulance variability (µas)',
             style={'textAlign': 'center','font-weight': 'bold','color': colors['text']}
                 ),
             # input tab
@@ -336,7 +338,7 @@ def update_output_div(n_clicks,wavelength,SNR,rNGS,Rref,T,dt,Nref,rsep,Nfield,Ns
     Final_error=0
     if int(n_clicks)>=1:
         Final_error = Error_calculator(global_inputs,field,sigma_x,sigma_t,astrometry_type)
-    return 'Final astrometry error is {}'.format(Final_error)
+    return 'Final astrometry error is {} µas'.format(Final_error)
 
 # @app.callback(
 #     Output(component_id='Butt', component_property='children'),
