@@ -195,7 +195,7 @@ app.layout = html.Div(children=[
                   
                 ]),
 
-            ],style={'backgroundColor': '#111111','opacity': '.8','width': '30%','float': 'left','display': 'inline-block','margin-left': '25px','height': '420px'}),
+            ],style={'backgroundColor': '#111111','opacity': '.8','width': '30%','float': 'right','display': 'inline-block','margin-left': '25px','margin-right': '25px','height': '420px'}),
 
 
 ###################### USER DEFINED VARIANCES ##############################
@@ -242,19 +242,7 @@ app.layout = html.Div(children=[
         
                  ]),
 
-       ## Turbulance variability
-            # header
-        html.Div(children= u'Turbulance variability (µas)',
-            style={'textAlign': 'center','font-weight': 'bold','color': colors['text']}
-                ),
-            # input tab
-        html.Div([
-        dcc.Input(id='TV-id', value=1, type='number',min=1,max=1,
-        style={'textAlign': 'center','margin-left': '70px','width':'70%'}),
-           
-                ]),
 
-            ],style={'backgroundColor': '#111111','opacity': '.8','width': '32%','float': 'right','display': 'inline-block','margin-right': '25px','margin-left': '25px','height': '420px'}),
     
 ###################### output ############################################
     
@@ -262,10 +250,11 @@ app.layout = html.Div(children=[
 
     html.Div(id='ls-id',
         style={'width': '30%', 'color': 'white','font-weight': 'bold','float':'center', 'display': 'inline-block'}),
+        ], style={'background-image': 'url(https://www.ipac.caltech.edu/system/activities/images/20/large/thirty-meter-telescope-illustration-nao-japan.jpg)',}),
 
     html.Div(id='final_output-id',
 #        style={'width': '30%', 'float':'right', 'display': 'inline-block'}),
-        style={'color': 'white', 'font-weight': 'bold','textAlign':'center','font-size':'25px','margin-top': '-15px'}),
+        style={'color': 'black', 'font-weight': 'bold','textAlign':'center','font-size':'25px','margin-top': '15px'}),
 
     
     
@@ -273,7 +262,6 @@ app.layout = html.Div(children=[
 
     # 
 
-        ], style={'background-image': 'url(https://www.ipac.caltech.edu/system/activities/images/20/large/thirty-meter-telescope-illustration-nao-japan.jpg)',}),
 
 
     # style={'width': '48%', 'float': 'center', 'display': 'inline-block'}),
@@ -301,7 +289,7 @@ app.layout = html.Div(children=[
     # Input(component_id='HOT-id', component_property='value'),
     # Input(component_id='PSI-id', component_property='value'),
     State(component_id='HE-id', component_property='value'),
-    State(component_id='TV-id', component_property='value'),
+#    State(component_id='TV-id', component_property='value'),
     # Input(component_id='PM-id', component_property='value'),
     State(component_id='astrometry-type-id', component_property='value')
     ]
@@ -310,7 +298,7 @@ app.layout = html.Div(children=[
 )
 
 
-def update_output_div(n_clicks,wavelength,SNR,rNGS,Rref,T,dt,Nref,rsep,Nfield,Nsci,Confusion,OSD,HE,TV,astrometry_type):
+def update_output_div(n_clicks,wavelength,SNR,rNGS,Rref,T,dt,Nref,rsep,Nfield,Nsci,Confusion,OSD,HE,astrometry_type):
     # The variables are already imported from input.py. Update the variables the are fed from the UI
     global_inputs['wavelength'] = wavelength
     global_inputs['SNR'] = SNR
@@ -331,7 +319,7 @@ def update_output_div(n_clicks,wavelength,SNR,rNGS,Rref,T,dt,Nref,rsep,Nfield,Ns
     # sigma_x['Opto-mechanical errors']['Diff TTJ higher order'] = HOT
     # sigma_x['Opto-mechanical errors']['PSF irregularities'] = PSI
     sigma_x['Opto-mechanical errors']['Halo effect'] = HE
-    sigma_x['Opto-mechanical errors']['Turb conditions variability'] = TV
+#    sigma_x['Opto-mechanical errors']['Turb conditions variability'] = TV
     # sigma_t['Opto-mechanical errors']['Proper motion errors'] = PM
 
     # send the unpdated inputs to calculate the astrometry error

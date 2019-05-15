@@ -43,9 +43,9 @@ def abs_astrometry(global_inputs,field,sigma_x,sigma_t):
 		Diff_TTJ_HO = f.A2(sigma_x['Residual turbulence errors']['Diff TTJ higher order'])
 		PSF_irr = f.A2(sigma_x['Residual turbulence errors']['PSF irregularities'])
 		PSF_HE = f.A2(sigma_x['Residual turbulence errors']['Halo effect'])
-		TC_var = f.A2(sigma_x['Residual turbulence errors']['Turb conditions variability'])
+#		TC_var = f.A2(sigma_x['Residual turbulence errors']['Turb conditions variability'])
 
-		Res_turb_err = Diff_TTJ_PS + Diff_TTJ_HO + PSF_irr + PSF_HE + TC_var
+		Res_turb_err = Diff_TTJ_PS + Diff_TTJ_HO + PSF_irr + PSF_HE 
 		# print(math.sqrt(Res_turb_err))
 
 		pos_err = f.PS1(sigma_t['Reference obj n catalog errors']['Position errors'],field,global_inputs)
@@ -95,9 +95,9 @@ def abs_astrometry(global_inputs,field,sigma_x,sigma_t):
 		Diff_TTJ_HO = f.A1(sigma_x['Residual turbulence errors']['Diff TTJ higher order'],sigma_x['Residual turbulence errors']['Diff TTJ higher order'],field,fred)
 		PSF_irr = f.A1(sigma_x['Residual turbulence errors']['PSF irregularities'],sigma_x['Residual turbulence errors']['PSF irregularities'],field,fred)
 		PSF_HE = f.A1(sigma_x['Residual turbulence errors']['Halo effect'],sigma_x['Residual turbulence errors']['Halo effect'],field,fred)
-		TC_var = f.A1(sigma_x['Residual turbulence errors']['Turb conditions variability'],sigma_x['Residual turbulence errors']['Turb conditions variability'],field,fred)
+#		TC_var = f.A1(sigma_x['Residual turbulence errors']['Turb conditions variability'],sigma_x['Residual turbulence errors']['Turb conditions variability'],field,fred)
 
-		Res_turb_err = Diff_TTJ_PS + Diff_TTJ_HO + PSF_irr + PSF_HE + TC_var
+		Res_turb_err = Diff_TTJ_PS + Diff_TTJ_HO + PSF_irr + PSF_HE 
 		# print(math.sqrt(Res_turb_err))
 
 		pos_err = f.PS2(sigma_t['Reference obj n catalog errors']['Position errors'],field,global_inputs)
