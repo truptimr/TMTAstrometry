@@ -4,9 +4,9 @@ TMT astrometry tool in python
 - pip install dash==0.42.0  # The core dash backend
 - https://plot.ly/products/dash/
 - Run IRIS_Astrometry file
+- python ./IRIS_Astrometry.py
 - See output in browser http://127.0.0.1:8050/
-
-# Tasks remaining
+- While using Mac OS setup your system for python 3 and use commands, pip3 install dash==0.42.0,  python3 ./IRIS_Astrometry.py# Tasks remaining
 - Need a better looking UI
 - Need units every where
 - avoid div by zero
