@@ -1,6 +1,7 @@
 # TMT Astrometry
 TMT astrometry tool in python 
 - Install dash libraries
+pip install dash==0.42.0  # The core dash backend
 https://plot.ly/products/dash/
 - Run IRIS_Astrometry file
 - See output in browser http://127.0.0.1:8050/
@@ -19,6 +20,7 @@ https://plot.ly/products/dash/
 - store results in a file?
 - Automate to read multiple cases from a file and store results in a file?
 - Things to plot?
+- Integrate it with a catalog or observation field simulation. This will automatically generate input for the calculator.
 
 # Issues
 - Excel never uses formula DR1 from the .pdf. We need to work on its use case?
