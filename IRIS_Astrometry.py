@@ -51,7 +51,6 @@ app.layout = html.Div(children=[
     #     style={'width': '30%', 'float':'center', 'display': 'inline-block'}),
     
 
-
 ############################## GLOBAL INPUTS #################################
 
 
@@ -242,7 +241,7 @@ app.layout = html.Div(children=[
         
                  ]),
 
-
+            ],style={'backgroundColor': '#111111','opacity': '.8','width': '32%','float': 'left','display': 'inline-block','margin-left': '25px','height': '420px'}),
     
 ###################### output ############################################
     
@@ -261,8 +260,6 @@ app.layout = html.Div(children=[
     html.Div(id='butt-state')
 
     # 
-
-
 
     # style={'width': '48%', 'float': 'center', 'display': 'inline-block'}),
 ])
@@ -289,7 +286,7 @@ app.layout = html.Div(children=[
     # Input(component_id='HOT-id', component_property='value'),
     # Input(component_id='PSI-id', component_property='value'),
     State(component_id='HE-id', component_property='value'),
-#    State(component_id='TV-id', component_property='value'),
+    #    State(component_id='TV-id', component_property='value'),
     # Input(component_id='PM-id', component_property='value'),
     State(component_id='astrometry-type-id', component_property='value')
     ]
@@ -319,7 +316,7 @@ def update_output_div(n_clicks,wavelength,SNR,rNGS,Rref,T,dt,Nref,rsep,Nfield,Ns
     # sigma_x['Opto-mechanical errors']['Diff TTJ higher order'] = HOT
     # sigma_x['Opto-mechanical errors']['PSF irregularities'] = PSI
     sigma_x['Opto-mechanical errors']['Halo effect'] = HE
-#    sigma_x['Opto-mechanical errors']['Turb conditions variability'] = TV
+    #    sigma_x['Opto-mechanical errors']['Turb conditions variability'] = TV
     # sigma_t['Opto-mechanical errors']['Proper motion errors'] = PM
 
     # send the unpdated inputs to calculate the astrometry error
@@ -338,5 +335,4 @@ def update_output_div(n_clicks,wavelength,SNR,rNGS,Rref,T,dt,Nref,rsep,Nfield,Ns
 
 if __name__ == '__main__':
     app.run_server(debug=True)
-
 
