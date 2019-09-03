@@ -22,19 +22,11 @@ astrometry_type = ['Differential astrometry (relative to field stars)', 'Differe
 app.layout = html.Div(children=[
      
     html.Div([
-    html.H1('TMT-IRIS Astrometry Error budget' ,
-    style={'color': 'white', 'font-style': 'italic', 'font-weight': 'bold','textAlign':'center'}
+    html.H1('TMT-IRIS Astrometry Error Budget' ,
+    style={'color': 'black', 'font-style': 'italic', 'font-weight': 'bold','textAlign':'center'}
     ),
 
-#    html.Div([
-#    dcc.RadioItems(
-#            id='astrometry-type-id',
-#            options=[{'label': i, 'value': i} for i in astrometry_type],
-#            value=astrometry_type[0],
-#            labelStyle={'display': 'inline-block'}
-#        ),
-#    ],style={'width': '30%', 'float':'center', 'display': 'inline-block','textAlign':'center','margin-right': '500px', 'margin-top': '25px'}),
-    
+
     html.Div([
     html.Label('Astrometry science case'),
     dcc.Dropdown(
@@ -51,7 +43,7 @@ app.layout = html.Div(children=[
     #     style={'width': '30%', 'float':'center', 'display': 'inline-block'}),
     
 
-############################## GLOBAL INPUTS #################################
+    ############################## GLOBAL INPUTS #################################
 
 
     html.Div(children=[
@@ -132,7 +124,7 @@ app.layout = html.Div(children=[
                   
 
 
-############################## OBSERVATION FIELD ##############################
+    ############################## OBSERVATION FIELD ##############################
 
 
 
@@ -197,7 +189,7 @@ app.layout = html.Div(children=[
             ],style={'backgroundColor': '#111111','opacity': '.8','width': '30%','float': 'right','display': 'inline-block','margin-left': '25px','margin-right': '25px','height': '420px'}),
 
 
-###################### USER DEFINED VARIANCES ##############################
+    ###################### USER DEFINED VARIANCES ##############################
 
     html.Div(children=[
         ## User defined variances
@@ -236,32 +228,35 @@ app.layout = html.Div(children=[
                 ),
             # input tab
         html.Div([
-        dcc.Input(id='HE-id', value=3, type='number',step=0.01,min=0,max=5,
-        style={'textAlign': 'center','margin-left': '70px','width':'70%'}),
-        
-                 ]),
+            dcc.Input(id='HE-id', value=3, type='number',step=0.01,min=0,max=5,
+                style={'textAlign': 'center','margin-left': '70px','width':'70%'}),
+                
+                         ]),
 
             ],style={'backgroundColor': '#111111','opacity': '.8','width': '32%','float': 'left','display': 'inline-block','margin-left': '25px','height': '420px'}),
     
-###################### output ############################################
+    ###################### output ############################################
     
     html.Button(id = 'Calculate',n_clicks=0,children='Calculate', style={'width': '10%','backgroundColor': 'white','opacity': '1','font-weight': 'bold','color': 'black', 'float':'center', 'display': 'inline-block'}),
 
     html.Div(id='ls-id',
         style={'width': '30%', 'color': 'white','font-weight': 'bold','float':'center', 'display': 'inline-block'}),
-        ], style={'background-image': 'url(https://www.ipac.caltech.edu/system/activities/images/20/large/thirty-meter-telescope-illustration-nao-japan.jpg)',}),
+        ], style={'background-image': 'url(https://www.ipac.caltech.edu/system/activities/images/20/large/thirty-meter-telescope-illustration-nao-japan.jpg)'}),
 
     html.Div(id='final_output-id',
-#        style={'width': '30%', 'float':'right', 'display': 'inline-block'}),
+    #        style={'width': '30%', 'float':'right', 'display': 'inline-block'}),
         style={'color': 'black', 'font-weight': 'bold','textAlign':'center','font-size':'25px','margin-top': '15px'}),
 
-    
-    
-    html.Div(id='butt-state')
+    html.Div(children=[
+        dcc.Markdown('''
+            References
+            1. M. Schock and B. Ellerbroek,et. al.,"TMT Top Down Astrometry Error Budget", TMT internal report TMT.AOS.TEC.12.039.DRF03, Thirty Meter Telescope, 2014
+            ''')
+    # html.H6(children='M. Schock and B. Ellerbroek,et. al.,"TMT Top Down Astrometry Error Budget", TMT internal report TMT.AOS.TEC.12.039.DRF03, Thirty Meter Telescope, 2014.' ,
+    # style={'color': 'black', 'font-weight': 'normal','textAlign':'left'})
+    ]),
 
-    # 
 
-    # style={'width': '48%', 'float': 'center', 'display': 'inline-block'}),
 ])
 
 
@@ -290,8 +285,6 @@ app.layout = html.Div(children=[
     # Input(component_id='PM-id', component_property='value'),
     State(component_id='astrometry-type-id', component_property='value')
     ]
-#    Output('tabs-content', 'children'),
-#              [Input('tabs', 'value')]
 )
 
 
@@ -325,13 +318,7 @@ def update_output_div(n_clicks,wavelength,SNR,rNGS,Rref,T,dt,Nref,rsep,Nfield,Ns
         Final_error = Error_calculator(global_inputs,field,sigma_x,sigma_t,astrometry_type)
     return 'Final astrometry error is {} µas'.format(Final_error)
 
-# @app.callback(
-#     Output(component_id='Butt', component_property='children'),
-#     Input(component_id='Calculate', component_property= 'n_clicks')
-# )
 
-# def update_buttonstate(value):
-#     return 'Button state is {}'.format(value)
 
 if __name__ == '__main__':
     app.run_server(debug=True)
