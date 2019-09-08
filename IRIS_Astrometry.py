@@ -21,257 +21,252 @@ astrometry_type = ['Differential astrometry (relative to field stars)', 'Differe
 
 app.layout = html.Div(
     dcc.Tabs(id="tabs", children=[
-    dcc.Tab(label='Calculator',
-    children=[
-        html.Div([
-        html.H1('TMT-IRIS Astrometry Error Budget' ,
-        style={'color': 'black', 'font-style': 'italic', 'font-weight': 'bold','textAlign':'center'}
-        ),
-
-
-        html.Div([
-        html.Label('Astrometry science case'),
-        dcc.Dropdown(
-                id='astrometry-type-id',
-                options=[{'label': i, 'value': i} for i in astrometry_type],
-                value=astrometry_type[0],
-                multi = False,
-                style={'color':'black'}
+        dcc.Tab(label='Calculator',
+            children=[
+                html.Div([
+                    html.H1('TMT-IRIS Astrometry Error Budget' ,
+                    style={'color': 'black', 'font-style': 'italic', 'font-weight': 'bold','textAlign':'center'}
                     ),
-        ],
+
+
+                html.Div([
+                    html.Label('Astrometry science case'),
+                    dcc.Dropdown(
+                            id='astrometry-type-id',
+                            options=[{'label': i, 'value': i} for i in astrometry_type],
+                            value=astrometry_type[0],
+                            multi = False,
+                            style={'color':'black'}
+                                ),
+                    ],
         
-        style={'width': '50%', 'color': 'white','float':'center', 'display': 'inline-block','textAlign':'center','font-weight': 'bold','margin-right': '400px','margin-left': '50px','margin-bottom': '10px'}),
-        # html.Div(id='blankspace1-id',
-        #     style={'width': '30%', 'float':'center', 'display': 'inline-block'}),
+                    style={'width': '50%', 'color': 'white','float':'center', 'display': 'inline-block','textAlign':'center','font-weight': 'bold','margin-right': '400px','margin-left': '50px','margin-bottom': '10px'}),
         
 
-        ############################## GLOBAL INPUTS #################################
+                ############################## GLOBAL INPUTS #################################
 
 
-        html.Div(children=[
-            ## global header
-            html.H5(children='Global inputs',
-                style={ 'backgroundColor': '#FFFFFF','textAlign': 'center','font-weight': 'bold','color':'black'},
-                ),
-            ## wavelength input
-                # header
-            html.Div(children='Wavelength  (m)',
-                style={'textAlign': 'center','font-weight': 'bold','color': colors['text']}
-                    ),
-                # input tab
-            html.Div([
-            dcc.Input(id='wavelength-id', value = 0.0000025, type='number',
-                      step=1e-7,min =0.0000008,max=0.0000025,
-                      style={'textAlign': 'center','margin-left': '100px','width':'50%'}),
-                     ]),
+                html.Div(children=[
+                    ## global header
+                    html.H5(children='Global inputs',
+                        style={ 'backgroundColor': '#FFFFFF','textAlign': 'center','font-weight': 'bold','color':'black'},
+                        ),
+                    ## wavelength input
+                        # header
+                    html.Div(children='Wavelength  (m)',
+                        style={'textAlign': 'center','font-weight': 'bold','color': colors['text']}
+                            ),
+                        # input tab
+                    html.Div([
+                    dcc.Input(id='wavelength-id', value = 0.0000025, type='number',
+                              step=1e-7,min =0.0000008,max=0.0000025,
+                              style={'textAlign': 'center','margin-left': '100px','width':'50%'}),
+                             ]),
 
-            ## SNR input
-                # header
-            html.Div(children='SNR',
-                style={'textAlign': 'center','font-weight': 'bold','color': colors['text']}
-                    ),
-                # input tab
-            html.Div([
-            dcc.Input(id='SNR-id', value = 200, type='number',
-                      style={'textAlign': 'center','margin-left': '100px','width':'50%'}),
-                     ]),
+                    ## SNR input
+                        # header
+                    html.Div(children='SNR',
+                        style={'textAlign': 'center','font-weight': 'bold','color': colors['text']}
+                            ),
+                        # input tab
+                    html.Div([
+                    dcc.Input(id='SNR-id', value = 200, type='number',
+                              style={'textAlign': 'center','margin-left': '100px','width':'50%'}),
+                             ]),
 
-            ## RNGS input
-                # header
-            html.Div(children='rNGS  (arcsec)',
-                style={'textAlign': 'center','font-weight': 'bold','color': colors['text']}
-                     ),
-                # input tab
-            html.Div([
-            dcc.Input(id='RNGS-id', value=30, type='number',step=0.01,min =0,
-                      style={'textAlign': 'center','margin-left': '100px','width':'50%'}),
-                   
-                     ]),
+                    ## RNGS input
+                        # header
+                    html.Div(children='rNGS  (arcsec)',
+                        style={'textAlign': 'center','font-weight': 'bold','color': colors['text']}
+                             ),
+                        # input tab
+                    html.Div([
+                    dcc.Input(id='RNGS-id', value=30, type='number',step=0.01,min =0,
+                              style={'textAlign': 'center','margin-left': '100px','width':'50%'}),
+                           
+                             ]),
 
-            ## Rref input
-                # header
-            html.Div(children='rREF  (arcsec)',
-                style={'textAlign': 'center','font-weight': 'bold','color': colors['text']}
-                    ),
-                # input tab
-            html.Div([
-            dcc.Input(id='rref-id', value=17, type='number',step=0.01,min =0,
-            style={'textAlign': 'center','margin-left': '100px','width':'50%'}),
-     
-                     ]),
+                    ## Rref input
+                        # header
+                    html.Div(children='rREF  (arcsec)',
+                        style={'textAlign': 'center','font-weight': 'bold','color': colors['text']}
+                            ),
+                        # input tab
+                    html.Div([
+                    dcc.Input(id='rref-id', value=17, type='number',step=0.01,min =0,
+                    style={'textAlign': 'center','margin-left': '100px','width':'50%'}),
+             
+                             ]),
 
-            ## T input
-                # header
-            html.Div(children='T  (s)',
-                style={'textAlign': 'center','font-weight': 'bold','color': colors['text']}
-                    ),
-                # input tab
-            html.Div([
-            dcc.Input(id='T-id', value=100, type='number',step=0.01,min =0,
-            style={'textAlign': 'center','margin-left': '100px','width':'50%'}),
-                    ]),
+                    ## T input
+                        # header
+                    html.Div(children='T  (s)',
+                        style={'textAlign': 'center','font-weight': 'bold','color': colors['text']}
+                            ),
+                        # input tab
+                    html.Div([
+                    dcc.Input(id='T-id', value=100, type='number',step=0.01,min =0,
+                    style={'textAlign': 'center','margin-left': '100px','width':'50%'}),
+                            ]),
 
-            ## dt input
-                # header
-            html.Div(children='dt epoch  (yr)',
-                style={'textAlign': 'center','font-weight': 'bold','color': colors['text']}
-                    ),
-                # input tab
-            html.Div([
-            dcc.Input(id='dt-id', value=1, type='number',step=0.01,min =0,
-            style={'textAlign': 'center','margin-left': '100px','width':'50%'}),
+                    ## dt input
+                        # header
+                    html.Div(children='dt epoch  (yr)',
+                        style={'textAlign': 'center','font-weight': 'bold','color': colors['text']}
+                            ),
+                        # input tab
+                    html.Div([
+                    dcc.Input(id='dt-id', value=1, type='number',step=0.01,min =0,
+                    style={'textAlign': 'center','margin-left': '100px','width':'50%'}),
 
                      ]),
                 ],style={'backgroundColor': '#111111','opacity': '.8','width': '30%','float': 'right','display': 'inline-block','margin-right': '25px'}),
                       
 
 
-        ############################## OBSERVATION FIELD ##############################
+                ############################## OBSERVATION FIELD ##############################
 
 
 
-        html.Div(children=[
-            ## Field of observation
-            html.H5(children='Observation Field',
-                style={ 'backgroundColor': '#FFFFFF','textAlign': 'center','font-weight': 'bold','color':'black'},
-                   ),
-            
-                    ## rsep input
-                # header
-            html.Div(children='rSEP (arcsec) ',
-             
-                style={'textAlign': 'center','font-weight': 'bold','color': colors['text']
-                      }
-                     ),
-                # input tab
-            html.Div([
-            dcc.Input(id='rsep-id', value = 1, type='number',step=0.01,min =0,
-            style={'textAlign': 'center','margin-left': '100px','width':'50%'}),
-             
-                     ]),
+                html.Div(children=[
+                    ## Field of observation
+                    html.H5(children='Observation Field',
+                        style={ 'backgroundColor': '#FFFFFF','textAlign': 'center','font-weight': 'bold','color':'black'},
+                           ),
+                    
+                            ## rsep input
+                        # header
+                    html.Div(children='rSEP (arcsec) ',
+                     
+                        style={'textAlign': 'center','font-weight': 'bold','color': colors['text']
+                              }
+                             ),
+                        # input tab
+                    html.Div([
+                    dcc.Input(id='rsep-id', value = 1, type='number',step=0.01,min =0,
+                    style={'textAlign': 'center','margin-left': '100px','width':'50%'}),
+                     
+                             ]),
 
-            
-            ## Nref input
-                # header
-            html.Div(children='Number of reference stars',
-                style={'textAlign': 'center','font-weight': 'bold','color': colors['text']}
-                    ),
-                # input tab
-            html.Div([
-            dcc.Input(id='Nref-id', value = 1, type='number',min=0,
-            style={'textAlign': 'center','margin-left': '100px','width':'50%'}),
+                    
+                    ## Nref input
+                        # header
+                    html.Div(children='Number of reference stars',
+                        style={'textAlign': 'center','font-weight': 'bold','color': colors['text']}
+                            ),
+                        # input tab
+                    html.Div([
+                    dcc.Input(id='Nref-id', value = 1, type='number',min=0,
+                    style={'textAlign': 'center','margin-left': '100px','width':'50%'}),
+                              
+                             ]),
+
+
+                    ## Nfield input
+                        # header
+                    html.Div(children='Number of field stars',
+                        style={'textAlign': 'center','font-weight': 'bold','color': colors['text']}
+                            ),
+                        # input tab
+                    html.Div([
+                    dcc.Input(id='Nfield-id', value=1, type='number',min=0,
+                    style={'textAlign': 'center','margin-left': '100px','width':'50%'}),
+                              
+                             ]),
+
+                    ## Nsci input
+                        # header
+                    html.Div(children='Number of science object',
+                        style={'textAlign': 'center','font-weight': 'bold','color': colors['text']}
+                        ),
+                        # input tab
+                    html.Div([
+                    dcc.Input(id='Nsci-id', value=1, type='number',min=0,
+                    style={'textAlign': 'center','margin-left': '100px','width':'50%'}),
+                              
+                            ]),
+
+                        ],style={'backgroundColor': '#111111','opacity': '.8','width': '30%','float': 'right','display': 'inline-block','margin-left': '25px','margin-right': '25px','height': '420px'}),
+
+
+                ###################### USER DEFINED VARIANCES ##############################
+
+                html.Div(children=[
+                    ## User defined variances
+                    html.H5(children='User defined variances',
+                        style={ 'backgroundColor': '#FFFFFF','textAlign': 'center','font-weight': 'bold','color':'black'},
+                           ),
+                   
+                    ## Confusion input
+                        # header
+                    html.Div(children=u'Confusion (µas)',
+                        style={'textAlign': 'center','font-weight': 'bold','color': colors['text']}
+                            ),
+                        # input tab
+                    html.Div([
+                    dcc.Input(id='confusion-id', value = 5, type='number',step =5,min=0,
+                    style={'textAlign': 'center','margin-left': '70px','width':'70%'}),
                       
-                     ]),
+                             ]),
 
-
-            ## Nfield input
-                # header
-            html.Div(children='Number of field stars',
-                style={'textAlign': 'center','font-weight': 'bold','color': colors['text']}
-                    ),
-                # input tab
-            html.Div([
-            dcc.Input(id='Nfield-id', value=1, type='number',min=0,
-            style={'textAlign': 'center','margin-left': '100px','width':'50%'}),
-                      
-                     ]),
-
-            ## Nsci input
-                # header
-            html.Div(children='Number of science object',
-                style={'textAlign': 'center','font-weight': 'bold','color': colors['text']}
-                ),
-                # input tab
-            html.Div([
-            dcc.Input(id='Nsci-id', value=1, type='number',min=0,
-            style={'textAlign': 'center','margin-left': '100px','width':'50%'}),
-                      
-                    ]),
-
-                ],style={'backgroundColor': '#111111','opacity': '.8','width': '30%','float': 'right','display': 'inline-block','margin-left': '25px','margin-right': '25px','height': '420px'}),
-
-
-        ###################### USER DEFINED VARIANCES ##############################
-
-        html.Div(children=[
-            ## User defined variances
-            html.H5(children='User defined variances',
-                style={ 'backgroundColor': '#FFFFFF','textAlign': 'center','font-weight': 'bold','color':'black'},
-                   ),
-           
-            ## Confusion input
-                # header
-            html.Div(children=u'Confusion (µas)',
-                style={'textAlign': 'center','font-weight': 'bold','color': colors['text']}
-                    ),
-                # input tab
-            html.Div([
-            dcc.Input(id='confusion-id', value = 5, type='number',step =5,min=0,
-            style={'textAlign': 'center','margin-left': '70px','width':'70%'}),
-              
-                     ]),
-
-            ## OSD input
-                # header
-            html.Div(children=u'Object Spectra dispersion (µas)',
-                style={'textAlign': 'center','font-weight': 'bold','color': colors['text'],'margin-left': '15px'}
-                    ),
-                # input tab
-            html.Div([
-            dcc.Input(id='OSD-id', value = 5, type='number',step=1,min=1,max=50,
-            style={'textAlign': 'center','margin-left': '70px','width':'70%'}),
-            
-                     ]),
-
-            ## Halo Effect input
-                # header
-            html.Div(children=u'Halo Effect (µas)',
-                style={'textAlign': 'center', 'font-weight': 'bold','color': colors['text']}
-                    ),
-                # input tab
-            html.Div([
-                dcc.Input(id='HE-id', value=3, type='number',step=0.01,min=0,max=5,
+                    ## OSD input
+                        # header
+                    html.Div(children=u'Object Spectra dispersion (µas)',
+                        style={'textAlign': 'center','font-weight': 'bold','color': colors['text'],'margin-left': '15px'}
+                            ),
+                        # input tab
+                    html.Div([
+                    dcc.Input(id='OSD-id', value = 5, type='number',step=1,min=1,max=50,
                     style={'textAlign': 'center','margin-left': '70px','width':'70%'}),
                     
                              ]),
 
-                ],style={'backgroundColor': '#111111','opacity': '.8','width': '32%','float': 'left','display': 'inline-block','margin-left': '25px','height': '420px'}),
+                    ## Halo Effect input
+                        # header
+                    html.Div(children=u'Halo Effect (µas)',
+                        style={'textAlign': 'center', 'font-weight': 'bold','color': colors['text']}
+                            ),
+                        # input tab
+                    html.Div([
+                        dcc.Input(id='HE-id', value=3, type='number',step=0.01,min=0,max=5,
+                            style={'textAlign': 'center','margin-left': '70px','width':'70%'}),
+                            
+                                     ]),
+
+                        ],style={'backgroundColor': '#111111','opacity': '.8','width': '32%','float': 'left','display': 'inline-block','margin-left': '25px','height': '420px'}),
         
-        ###################### output ############################################
+                ###################### output ############################################
         
-        html.Button(id = 'Calculate',n_clicks=0,children='Calculate', style={'width': '10%','backgroundColor': 'white','opacity': '1','font-weight': 'bold','color': 'black', 'float':'center', 'display': 'inline-block'}),
+                html.Button(id = 'Calculate',n_clicks=0,children='Calculate', style={'width': '10%','backgroundColor': 'white','opacity': '1','font-weight': 'bold','color': 'black', 'float':'center', 'display': 'inline-block'}),
 
-        html.Div(id='ls-id',
-            style={'width': '30%', 'color': 'white','font-weight': 'bold','float':'center', 'display': 'inline-block'}),
-            ], style={'background-image': 'url(https://www.ipac.caltech.edu/system/activities/images/20/large/thirty-meter-telescope-illustration-nao-japan.jpg)'}),
+                html.Div(id='ls-id',
+                    style={'width': '30%', 'color': 'white','font-weight': 'bold','float':'center', 'display': 'inline-block'}),
+                    ], style={'background-image': 'url(https://www.ipac.caltech.edu/system/activities/images/20/large/thirty-meter-telescope-illustration-nao-japan.jpg)'}),
 
-        html.Div(id='final_output-id',
-        #        style={'width': '30%', 'float':'right', 'display': 'inline-block'}),
-            style={'color': 'black', 'font-weight': 'bold','textAlign':'center','font-size':'25px','margin-top': '15px'}),
+                html.Div(id='final_output-id',
+                #        style={'width': '30%', 'float':'right', 'display': 'inline-block'}),
+                    style={'color': 'black', 'font-weight': 'bold','textAlign':'center','font-size':'25px','margin-top': '15px'}),
+                
+                ##################### Reference #########################################
 
-        html.Div(children=[
-            dcc.Markdown('''
-                References
-                1. M. Schock and B. Ellerbroek,et. al.,"TMT Top Down Astrometry Error Budget", TMT internal report TMT.AOS.TEC.12.039.DRF03, Thirty Meter Telescope, 2014
-                ''')
-        # html.H6(children='M. Schock and B. Ellerbroek,et. al.,"TMT Top Down Astrometry Error Budget", TMT internal report TMT.AOS.TEC.12.039.DRF03, Thirty Meter Telescope, 2014.' ,
-        # style={'color': 'black', 'font-weight': 'normal','textAlign':'left'})
-        ]),
+                html.Div(children=[
+                    dcc.Markdown('''
+                        References
+                        1. M. Schock, B. Ellerbroek, et al.,"TMT Top Down Astrometry Error Budget", TMT internal report TMT.AOS.TEC.12.039.DRF03, Thirty Meter Telescope, 2014
+                        ''')
+                ]),
 
-    ]
-    ),
+            ]),
 
-    dcc.Tab(label='Documentation/User Help',
-        children=[
-        html.Div([
-        html.H1('TMT-IRIS Astrometry Error Budget' ,
-        style={'color': 'black', 'font-style': 'italic', 'font-weight': 'bold','textAlign':'center'}
-        )])
-        ],
-    )
-]
-)   
-
+        dcc.Tab(label='Documentation/User Help',
+            children=[
+                html.Div([
+                    html.H1('TMT-IRIS Astrometry Error Budget' ,
+                    style={'color': 'black', 'font-style': 'italic', 'font-weight': 'bold','textAlign':'center'}
+                    )])
+            ],
+        )
+    ])  
 
 )
 
